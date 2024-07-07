@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import { connectionDB } from "./database/dbConfig";
 import { errorMiddleware } from "./middlewares/errorMiddleware";
+import messageRoutes from "./routes/messageRoutes";
 dotenv.config();
 connectionDB();
 
@@ -24,6 +25,7 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/api/v1/message", messageRoutes); // set message routes
 // for file upload
 app.use(
   fileUpload({
