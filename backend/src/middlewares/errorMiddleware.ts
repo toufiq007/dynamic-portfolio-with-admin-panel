@@ -43,7 +43,7 @@ export const errorMiddleware: ErrorRequestHandler = (
       .join(" ");
   res.status(error.statusCode).json({
     success: false,
-    message: errorMessages,
+    message: error.message,
   });
 };
 
