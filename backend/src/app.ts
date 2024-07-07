@@ -3,7 +3,9 @@ import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
+import { connectionDB } from "./database/dbConfig";
 dotenv.config();
+connectionDB();
 
 const app = express();
 
