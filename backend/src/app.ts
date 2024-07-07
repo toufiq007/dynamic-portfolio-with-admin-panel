@@ -4,6 +4,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import { connectionDB } from "./database/dbConfig";
+import { errorMiddleware } from "./middlewares/errorMiddleware";
 dotenv.config();
 connectionDB();
 
@@ -30,5 +31,8 @@ app.use(
     tempFileDir: "/temp",
   })
 );
+
+// error middlwares
+app.use(errorMiddleware);
 
 export default app;
